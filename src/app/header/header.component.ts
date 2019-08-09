@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { async } from 'q';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 title = "Data Retrival System";
-  constructor() { }
-
+  constructor(private _auth : AuthService) { }
+logout = async() =>{
+    await sessionStorage.clear();
+    this._auth.navigate();
+}
   ngOnInit() {
   }
 

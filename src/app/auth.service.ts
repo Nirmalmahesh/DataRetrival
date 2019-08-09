@@ -12,6 +12,8 @@ export class AuthService {
    if(this.getUser())
    {
      this.router.navigate(['user']);
+   }else{
+     this.router.navigate(['login']);
    }
  }
  getUser = () =>{

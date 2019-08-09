@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component'
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { LatLangComponent } from './lat-lang/lat-lang.component'
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    LatLangComponent
   ],
   imports: [
     BrowserModule,
