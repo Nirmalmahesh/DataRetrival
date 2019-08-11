@@ -10,10 +10,13 @@ import { async } from '@angular/core/testing';
 export class LatLangComponent implements OnInit {
 latitude:string;
 longtitude:string;
-search = async() =>{
+results;
+available;
+search = async() =>{  
   await this.cloud.searchPlace(this.latitude,this.longtitude).subscribe(
-    data =>{
-      console.log(data);
+    data =>{           
+      this.results = data;      
+      this.available = true;
     }
   );
 }

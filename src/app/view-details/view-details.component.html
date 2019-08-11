@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <div class="d-flex justify-content-center">
+                <h2>{{place.result.name}}</h2>
+            </div>
+        </div>
+        <div class="col-md-6 mt-5">
+                <p>Name : {{place.result.name}}</p>
+                <p>Address : {{place.result.formatted_address}}</p>
+        </div>
+        <div class="col-md-6 mt-5">
+                <p *ngIf="place.result.formatted_phone_number">Phene Number : {{place.result.formatted_phone_number}}</p>
+                <p *ngIf="place.result.rating">Rating : {{place.result.rating}}</p>
+        </div>
+        <div class="col-md-12">
+                <div class="d-flex justify-content-center">
+                    <a [href]="place.result.url" target="blank" class="btn btn-info mt-5">View On Map</a>        
+                </div>
+        </div>
+    </div>
+    <div *ngIf="place.result.photos">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-center">
+                    <h3>Photos</h3>
+                </div>
+            </div>
+            <div class="col-md-4" *ngFor="let photo of place.result.photos">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <img width="100%" height="200px" [src]="giveImgUrl(photo.photo_reference)" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

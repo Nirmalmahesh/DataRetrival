@@ -1,0 +1,14 @@
+<div *ngIf="!available">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-center">
+                    <h3>Loading Data!!!!</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="available">
+    <app-show-results [results]="results"></app-show-results>
+</div>

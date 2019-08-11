@@ -1,0 +1,31 @@
+<div *ngIf="showError">
+    <div class="alert alert-{{customError.type}} alert-dismissible fade show" role="alert">
+        {{customError.message}}
+        <button type="button" class="close" (click)="hideError()">
+            <span>&times;</span>
+        </button>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-4 mb-5" *ngFor="let item of results.results">
+        <div class="card">
+            <div class="card-header">
+                <h5>{{item.name}}</h5>
+            </div>
+            <img *ngIf="item.photos" width="100%" height="300px;" [src]="giveImgUrl(item.photos[0].photo_reference)"
+                alt="">
+            <div class="card-body" style="height: 150px;">
+                <p>Address : {{item.formatted_address || item.vicinity}}</p>
+                <p *ngIf="item.opening_hours">Opening Status : {{item.opening_hours.open_now}}</p>
+                <p *ngIf="!item.opening_hours">Opening Status : Data Not Found</p>
+                <p *ngIf="item.rating">User Ratting : {{item.rating}} out of 5</p>
+            </div>
+
+            <div class="card-footer d-flex justify-content-center">
+                <input type="button" class="btn btn-success" value="Add Favorate" *ngIf="!checkIsFav(item.place_id)" (click)="addFavorate(item)">
+                <input type="button" class="btn btn-danger" value="Remove Favorate" *ngIf="checkIsFav(item.place_id)" (click)="removeFavorate(item)">                
+                <input type="button" class="btn btn-info" value="View Details" (click)="viewDetails(item.place_id)">
+            </div>
+        </div>
+    </div>
+</div>
