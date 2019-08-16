@@ -6,8 +6,8 @@ import { async } from 'q';
   providedIn: 'root'
 })
 export class GoogleAPIService {
-  key = "AIzaSyB6JDv_BjUUeSTJJG8YF_1chKvSX1mtfgo";
-  type = "schools"
+  key = "AIzaSyDxJaaAn1xnD61767LKPtkQcWiGteI1yzc";
+  type = "college"
   query = `${this.type} in `
   lat = null;
   long = null;
